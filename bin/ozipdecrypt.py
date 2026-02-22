@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 # (c) B. Kerler 2017-2020, licensed under MIT license
+# Modded by peasoft 2026
 """
 Usage:
     ozipdecrypt.py --help
@@ -13,7 +14,10 @@ import os
 import stat
 import shutil
 import binascii
-from Crypto.Cipher import AES
+try:
+    from Crypto.Cipher import AES
+except ImportError:
+    from Cryptodome.Cipher import AES
 import zipfile
 from os.path import basename
 
