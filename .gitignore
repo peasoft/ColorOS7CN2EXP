@@ -1,0 +1,7 @@
+*
+!/.gitignore
+!/bin**
+!/res**
+!/*.sh
+!/*.py
+!/*.md
