@@ -35,7 +35,9 @@ truncate -s 0 cn/system/etc/blacklist/*
 del framework/arm/boot-framework.*
 del framework/arm64/boot-framework.*
 del framework/boot-framework.*
+del priv-app/KeKeAppDetail
 del priv-app/OppoPermissionController
+del priv-app/PackageInstaller
 del product/app/ModuleMetadata
 del product/priv-app/GooglePlayServicesUpdater
 dcopy app/FocusMode
@@ -44,6 +46,7 @@ copy2 etc/permissions/*exp* etc/permissions
 cp -f res/com.oppo.features_expCommon.xml cn/system/etc/permissions
 copy2 etc/permissions/Google* etc/permissions
 dcopy priv-app/GoogleExtServicesPrebuilt
+dcopy priv-app/GooglePackageInstaller
 dcopy priv-app/GooglePermissionControllerPrebuilt
 dcopy product/app/GoogleLocationHistory
 dcopy product/app/GoogleTTS
@@ -66,3 +69,5 @@ cp -f res/TelephonyProviderPatch.apk cn/system/app/TelephonyProviderPatch
 chmod 755 cn/system/app/TelephonyProviderPatch
 chmod 644 cn/system/app/TelephonyProviderPatch/*
 chcon -R u:object_r:system_file:s0 cn/system/app/TelephonyProviderPatch
+
+sed -i 's/^ro.oppo.version=$/ro.oppo.version=US/g' cn/system/euclid_build.prop
